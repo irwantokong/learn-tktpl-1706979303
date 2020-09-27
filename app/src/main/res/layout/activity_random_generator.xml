@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="id.ac.ui.cs.mobileprogramming.irwanto.randomgenerator.RandomGeneratorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Generated number:"
+            android:textColor="@color/colorPrimary"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/generated_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0"
+            android:textColor="@color/colorPrimary"
+            android:textSize="32sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/minimum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Min"
+                android:inputType="number"
+                android:minWidth="64dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="-" />
+
+            <EditText
+                android:id="@+id/maximum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Max"
+                android:inputType="number"
+                android:minWidth="64dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/generate_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:background="@color/colorPrimary"
+            android:text="Generate number!"
+            android:textColor="@android:color/white"
+            android:onClick="generateNumber" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

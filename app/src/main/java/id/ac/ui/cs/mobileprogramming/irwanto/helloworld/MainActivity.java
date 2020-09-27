@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import id.ac.ui.cs.mobileprogramming.irwanto.R;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

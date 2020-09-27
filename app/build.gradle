@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        applicationId "id.ac.ui.cs.mobileprogramming.irwanto.helloworld"
+        applicationId "id.ac.ui.cs.mobileprogramming.irwanto.randomgenerator"
         minSdkVersion 28
         targetSdkVersion 29
         versionCode 1
