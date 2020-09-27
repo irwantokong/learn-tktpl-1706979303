@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:padding="10dp"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/button_background_selector"
             android:text="Generate number!"
             android:textColor="@android:color/white"
             android:onClick="generateNumber" />
