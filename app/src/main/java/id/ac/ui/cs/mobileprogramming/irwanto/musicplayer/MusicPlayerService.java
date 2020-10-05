@@ -13,7 +13,7 @@ public class MusicPlayerService extends Service {
     public static final String MUSICPLAYER_BR = "id.ac.ui.cs.mobileprogramming.irwanto.musicplayer";
     Intent bi = new Intent(MUSICPLAYER_BR);
 
-    private Handler timeHandler = new Handler();
+    private Handler progressHandler = new Handler();
     private MediaPlayer musicPlayer;
 
     @Nullable
@@ -25,10 +25,10 @@ public class MusicPlayerService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        musicPlayer = MediaPlayer.create(this, R.raw.infinity_and_beyond);
+        musicPlayer = MediaPlayer.create(this, R.raw.bensound_funnysong);
         musicPlayer.setLooping(true);
-        timeHandler.removeCallbacks(startTime);
-        timeHandler.postDelayed(startTime, 0);
+        progressHandler.removeCallbacks(startProgress);
+        progressHandler.postDelayed(startProgress, 0);
     }
 
     @Override
@@ -41,12 +41,12 @@ public class MusicPlayerService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        timeHandler.removeCallbacks(startTime);
+        progressHandler.removeCallbacks(startProgress);
         musicPlayer.stop();
         Toast.makeText(this, "Stopped music", Toast.LENGTH_SHORT).show();
     }
 
-    private Runnable startTime = new Runnable() {
+    private Runnable startProgress = new Runnable() {
         @Override
         public void run() {
             double progress = (double) musicPlayer.getCurrentPosition() / musicPlayer.getDuration();
@@ -60,7 +60,7 @@ public class MusicPlayerService extends Service {
             bi.putExtra("current", String.format("%02d:%02d", currentMinute, currentSecond));
             bi.putExtra("duration", String.format("%02d:%02d", durationMinute, durationSecond));
             sendBroadcast(bi);
-            timeHandler.postDelayed(this, 1000);
+            progressHandler.postDelayed(this, 1000);
         }
     };
 }
