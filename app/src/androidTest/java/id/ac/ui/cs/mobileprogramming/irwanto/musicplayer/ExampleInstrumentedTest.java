@@ -1,4 +1,4 @@
-package id.ac.ui.cs.mobileprogramming.irwanto.helloworld;
+package id.ac.ui.cs.mobileprogramming.irwanto.musicplayer;
 
 import android.content.Context;
 
