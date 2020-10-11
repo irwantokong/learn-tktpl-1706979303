@@ -8,12 +8,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="First Fragment" />
+        android:text="Click to see detail of items below" />
 
-    <Button
-        android:id="@+id/go_button"
+    <ListView
+        android:id="@+id/item_list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Go to fragment 2" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

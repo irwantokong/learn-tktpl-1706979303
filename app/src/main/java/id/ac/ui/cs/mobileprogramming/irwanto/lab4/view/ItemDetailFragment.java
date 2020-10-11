@@ -3,30 +3,40 @@ package id.ac.ui.cs.mobileprogramming.irwanto.lab4.view;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import id.ac.ui.cs.mobileprogramming.irwanto.lab4.R;
+import id.ac.ui.cs.mobileprogramming.irwanto.lab4.model.Item;
+import id.ac.ui.cs.mobileprogramming.irwanto.lab4.viewmodel.ItemViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ItemDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ItemDetailFragment extends Fragment {
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    private View view;
+    private ItemViewModel itemViewModel;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_item_detail, container, false);
+        view = inflater.inflate(R.layout.fragment_item_detail, container, false);
+        itemViewModel = new ViewModelProvider(getActivity()).get(ItemViewModel.class);
+
+        itemViewModel.getSelectedItem().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String name) {
+                Item selectedItem = itemViewModel.getItem(name);
+                TextView itemNameTV = (TextView) view.findViewById(R.id.item_name);
+                TextView itemDescTV = (TextView) view.findViewById(R.id.item_desc);
+                itemNameTV.setText("Name: " + selectedItem.getName());
+                itemDescTV.setText("Description: " + selectedItem.getDescription());
+            }
+        });
+        return view;
     }
 
 }
