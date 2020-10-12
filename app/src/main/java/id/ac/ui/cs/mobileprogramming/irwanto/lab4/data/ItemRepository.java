@@ -22,11 +22,10 @@ public class ItemRepository {
 
     public void createDummyItem() {
         items = new HashMap<String, Item>();
-        Item item1 = new Item("Item 1", "Description of item 1");
-        Item item2 = new Item("Item 2", "Description of item 2");
-        Item item3 = new Item("Item 3", "Description of item 3");
-        items.put("Item 1", item1);
-        items.put("Item 2", item2);
-        items.put("Item 3", item3);
+        for (int i = 1; i <= 20; i++) {
+            String name = String.format("Item %02d", i);
+            String desc = "Description of item " + i;
+            items.put(name, new Item(name, desc));
+        }
     }
 }

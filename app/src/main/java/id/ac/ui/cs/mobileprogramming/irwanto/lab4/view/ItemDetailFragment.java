@@ -26,7 +26,7 @@ public class ItemDetailFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_item_detail, container, false);
         itemViewModel = new ViewModelProvider(getActivity()).get(ItemViewModel.class);
 
-        itemViewModel.getSelectedItem().observe(this, new Observer<String>() {
+        itemViewModel.getSelectedItem().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(String name) {
                 Item selectedItem = itemViewModel.getItem(name);
