@@ -47,6 +47,12 @@ public class RandomGeneratorActivity extends AppCompatActivity {
         }
     };
 
+    static {
+        System.loadLibrary("randomGenerator");
+    }
+
+    public native int generateFromRange(int min, int max);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +65,6 @@ public class RandomGeneratorActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.generate_button);
         button.setEnabled(false);
-
     }
 
     public void generateNumber(View view) {
@@ -69,8 +74,9 @@ public class RandomGeneratorActivity extends AppCompatActivity {
 
         int min = Integer.parseInt(editTextMin.getText().toString());
         int max = Integer.parseInt(editTextMax.getText().toString());
-        RandomNumberGenerator generator = new RandomNumberGenerator();
-        int randomNumber = generator.generateFromRange(min, max);
+//        RandomNumberGenerator generator = new RandomNumberGenerator();
+//        int randomNumber = generator.generateFromRange(min, max);
+        int randomNumber = generateFromRange(min, max);
         numberView.setText(String.valueOf(randomNumber));
     }
 }
